@@ -48,6 +48,6 @@ object Project21_Repo3 : GitVcsRoot({
     url = "git@github.com:ChubatovaTiger/repo3.git"
     branch = "refs/heads/main"
     authMethod = uploadedKey {
-        uploadedKey = "rsanopwd3"
+        uploadedKey = "rsanopwd4"
     }
 })
