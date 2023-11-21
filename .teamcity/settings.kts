@@ -18,6 +18,7 @@ buildType(Project21_Build2)
 
 object Project21_Build1 : BuildType({
     name = "build1"
+root(DslContext.settingsRoot)
  root(Project21_Repo3, "+:.=>repo3")
     dependencies {
         snapshot(Project21_Build2) {
@@ -29,6 +30,7 @@ object Project21_Build1 : BuildType({
 
 object Project21_Build2 : BuildType({
     name = "build2"
+root(DslContext.settingsRoot)
  root(Project21_Repo3, "+:.=>repo3")
 })
 
