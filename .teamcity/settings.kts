@@ -1,4 +1,5 @@
 import jetbrains.buildServer.configs.kotlin.*
+
 import jetbrains.buildServer.configs.kotlin.vcs.GitVcsRoot
 
 version = "2023.11"
@@ -13,13 +14,17 @@ object Project21 : Project({
     name = "project21"
 vcsRoot(Project21_Repo3)
     buildType(Project21_Build1)
-buildType(Project21_Build2)
+ buildType(Project21_Build2)
 })
 
 object Project21_Build1 : BuildType({
     name = "build1"
-root(DslContext.settingsRoot)
- root(Project21_Repo3, "+:.=>repo3")
+
+    vcs {
+        root(DslContext.settingsRoot)
+root(Project21_Repo3, "+:.=>repo3")
+
+    }
     dependencies {
         snapshot(Project21_Build2) {
             reuseBuilds = ReuseBuilds.NO
@@ -27,18 +32,22 @@ root(DslContext.settingsRoot)
     }
 })
 
-
 object Project21_Build2 : BuildType({
     name = "build2"
-root(DslContext.settingsRoot)
- root(Project21_Repo3, "+:.=>repo3")
+
+    vcs {
+        root(DslContext.settingsRoot)
+root(Project21_Repo3, "+:.=>repo3")
+    }
 })
+
+
 
 object Project21_Repo3 : GitVcsRoot({
     name = "repo3"
     url = "git@github.com:ChubatovaTiger/repo3.git"
     branch = "refs/heads/main"
     authMethod = uploadedKey {
-        uploadedKey = "rsanopwd3"
+        uploadedKey = "rsanopwd4"
     }
 })
