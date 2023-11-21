@@ -38,4 +38,5 @@ object Project21 : Project({
 
 object Project21_Build1 : BuildType({
     name = "build1"
+root(DslContext.settingsRoot)
 })
