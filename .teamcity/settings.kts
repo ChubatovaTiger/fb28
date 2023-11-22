@@ -1,4 +1,5 @@
 import jetbrains.buildServer.configs.kotlin.*
+import jetbrains.buildServer.configs.kotlin.buildSteps.script
 
 /*
 The settings script is an entry point for defining a TeamCity
@@ -26,17 +27,37 @@ version = "2023.11"
 
 project {
 
-    subProject(Project21)
+    buildType(Project2_Sample)
+
+    subProject(Project2_Project2_Project21)
 }
 
+object Project2_Sample : BuildType({
+    id = AbsoluteId("Project2_Sample")
+    name = "sample"
 
-object Project21 : Project({
-    name = "project21"
+    params {
+        param("parsample", "parsamplevalue")
+    }
 
-    buildType(Project21_Build1)
+    steps {
+        script {
+            id = "simpleRunner"
+            scriptContent = "echo %parsample%"
+        }
+    }
 })
 
-object Project21_Build1 : BuildType({
+
+object Project2_Project2_Project21 : Project({
+    id("Project21")
+    name = "project21"
+
+    buildType(Project2_Project2_Project21_Build1)
+})
+
+object Project2_Project2_Project21_Build1 : BuildType({
+    id("Project21_Build1")
     name = "build1"
 
     vcs {
