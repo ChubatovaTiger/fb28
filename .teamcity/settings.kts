@@ -27,17 +27,11 @@ version = "2023.11"
 project {
 
     subProject(Project21)
-    subProject(Project23)
 }
 
 
 object Project21 : Project({
     name = "project21"
-})
-
-
-object Project23 : Project({
-    name = "project23"
 
     buildType(Project21_Build1)
 })
