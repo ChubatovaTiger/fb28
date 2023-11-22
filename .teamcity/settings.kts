@@ -1,5 +1,5 @@
 import jetbrains.buildServer.configs.kotlin.*
-
+import jetbrains.buildServer.configs.kotlin.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.vcs.GitVcsRoot
 
 version = "2023.11"
@@ -28,6 +28,12 @@ root(Project21_Repo3, "+:.=>repo3")
     dependencies {
         snapshot(Project21_Build2) {
             reuseBuilds = ReuseBuilds.NO
+        }
+    }
+    steps {
+        script {
+            id = "simpleRunner"
+            scriptContent = "ls repo3"
         }
     }
 })
