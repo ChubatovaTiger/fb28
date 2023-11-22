@@ -27,6 +27,7 @@ version = "2023.11"
 project {
 
     subProject(Project21)
+    subProject(Project23)
 }
 
 
@@ -42,4 +43,9 @@ object Project21_Build1 : BuildType({
     vcs {
         root(DslContext.settingsRoot)
     }
+})
+
+
+object Project23 : Project({
+    name = "project23"
 })
