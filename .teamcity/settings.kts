@@ -29,12 +29,20 @@ project {
 
     buildType(Project2_Sample)
 
+    template(Project2_Project2_Tmpl1)
+
     subProject(Project2_Project2_Project21)
 }
 
 object Project2_Sample : BuildType({
+    templates(Project2_Project2_Tmpl1)
     id = AbsoluteId("Project2_Sample")
     name = "sample"
+})
+
+object Project2_Project2_Tmpl1 : Template({
+    id("Tmpl1")
+    name = "tmpl1"
 
     params {
         param("parsample", "parsamplevalue")
