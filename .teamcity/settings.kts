@@ -45,6 +45,9 @@ object Project21_Build2 : BuildType({
         root(DslContext.settingsRoot)
 root(Project21_Repo3, "+:.=>repo3")
     }
+    requirements {
+        contains("teamcity.agent.name", "mm")
+    }
 })
 
 
